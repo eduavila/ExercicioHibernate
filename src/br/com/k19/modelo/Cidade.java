@@ -12,14 +12,14 @@ import javax.persistence.*;
  */
 
 @Entity
-public class Estado {
+@Cacheable(true)
+public class Cidade {
     @Id @GeneratedValue
     private Long id;
     
     private String nome;
     
-    @OneToOne(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
-    private Governador gorvernador;
+    private String nomeDoEstado;
 
     /**
      * @return the id
@@ -50,18 +50,17 @@ public class Estado {
     }
 
     /**
-     * @return the gorvernador
+     * @return the nomeDoEstado
      */
-    public Governador getGorvernador() {
-        return gorvernador;
+    public String getNomeDoEstado() {
+        return nomeDoEstado;
     }
 
     /**
-     * @param gorvernador the gorvernador to set
+     * @param nomeDoEstado the nomeDoEstado to set
      */
-    public void setGorvernador(Governador gorvernador) {
-        this.gorvernador = gorvernador;
+    public void setNomeDoEstado(String nomeDoEstado) {
+        this.nomeDoEstado = nomeDoEstado;
     }
-    
     
 }
